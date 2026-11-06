@@ -1,0 +1,15 @@
+# TEST: Verify Multi-Gitter updates an existing pull request
+---
+name: Generate Third-Party Licenses
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  generate-third-party-licenses:
+    permissions:
+      contents: write
+    uses: mundialis/github-workflows/.github/workflows/third-party-licenses.yml@main
+    with:
+      # TEMPLATE_DEPENDENCY_INPUT

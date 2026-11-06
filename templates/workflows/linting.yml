@@ -1,0 +1,19 @@
+name: Linting and code quality check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    uses: mundialis/github-workflows/.github/workflows/linting.yml@main
+    with:
+      BASH_SEVERITY: 'warning'
+
+    # The reusable workflow requires these permissions from the calling job.
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
